@@ -26,7 +26,7 @@ export default function RootLayout({ children }) {
       >
         <div className="w-full min-h-screen">
           <Navbar />
-          <main className="min-h-[85vh] py-10">{children}</main>
+          <main className="h-[85vh] py-10">{children}</main>
           <Footer />
         </div>
       </body>
