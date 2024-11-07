@@ -25,7 +25,7 @@ const Links = () => {
         {session ? (
           <>
             {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-            <button className="px-4 py-2 bg-neutral-600 rounded-md text-white">
+            <button className="px-4 py-2 bg-amber-600 rounded-md text-white">
               Logout
             </button>
           </>

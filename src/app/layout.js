@@ -24,9 +24,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased px-20`}
       >
-        <div className="h-screen w-full">
+        <div className="w-full min-h-screen">
           <Navbar />
-          {children}
+          <main className="min-h-[85vh] py-10">{children}</main>
           <Footer />
         </div>
       </body>
