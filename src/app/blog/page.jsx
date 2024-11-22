@@ -1,17 +1,31 @@
-const data = [1, 2, 3, 4, 5, 6, 7];
-const Blog = () => {
+const getData = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+    next: { revalidate: 3600 },
+  });
+  if (!res.ok) {
+    throw new Error("Fetch data error");
+  }
+  return res.json();
+};
+
+const Blog = async () => {
+  const posts = await getData();
+
   return (
-    <div className="px-4 sm:px-6 lg:px-8 py-10">
-      <div className="grid grid-flow-row sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data.map((item) => (
+    <div className="py-10">
+      <div className="grid grid-flow-row sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {posts.map((item) => (
           <article
-            key={item}
+            key={item.id}
             className="flex flex-col bg-white shadow-sm rounded-lg transition hover:shadow-lg overflow-hidden"
           >
             <div className="hidden md:block">
               <img
                 alt="Blog"
-                src="https://images.unsplash.com/photo-1609557927087-f9cf8e88de18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                src={`https://placehold.co/600x400?text=${item.title.slice(
+                  0,
+                  10
+                )}`}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -27,21 +41,21 @@ const Blog = () => {
 
                 <a href="#">
                   <h3 className="mt-2 text-lg font-semibold text-gray-900 hover:text-gray-700">
-                    Finding the right guitar for your style - 5 tips
+                    {item.title}
                   </h3>
                 </a>
 
                 <p className="mt-2 text-sm text-gray-700 line-clamp-3">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Recusandae dolores, possimus pariatur animi temporibus
-                  nesciunt praesentium dolore sed nulla ipsum eveniet corporis
-                  quidem.
+                  {item.body.slice(0, 95)}
+                  {item.body.slice(0, 95).length < item.body.length
+                    ? "..."
+                    : ""}
                 </p>
               </div>
 
               <div className="mt-4">
                 <a
-                  href="#"
+                  href={`/blog/${item.id}`}
                   className="block w-full text-center bg-yellow-300 px-5 py-2 text-sm font-semibold uppercase text-gray-900 rounded-lg transition hover:bg-yellow-400"
                 >
                   Read Blog

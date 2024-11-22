@@ -26,8 +26,8 @@ export default function RootLayout({ children }) {
       >
         <div className="w-full min-h-screen">
           <Navbar />
-          <main className="h-[85vh] px-20">
-            <div className="max-h-[85vh] overflow-auto">{children}</div>
+          <main className="h-[85vh]">
+            <div className="max-h-[85vh] overflow-auto px-20">{children}</div>
           </main>
           <Footer />
         </div>
