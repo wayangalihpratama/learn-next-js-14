@@ -22,11 +22,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased px-20`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="w-full min-h-screen">
           <Navbar />
-          <main className="h-[85vh] py-10">{children}</main>
+          <main className="h-[85vh] px-20">
+            <div className="max-h-[85vh] overflow-auto">{children}</div>
+          </main>
           <Footer />
         </div>
       </body>

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Home = () => {
   return (
-    <div className="flex space-y-20 space-x-6">
+    <div className="flex space-y-20 space-x-6 mt-10">
       <div className="flex-1 flex-col space-y-12">
         <h1 className="text-9xl drop-shadow-md">Full Stack Developer</h1>
         <p className="text text-xl">

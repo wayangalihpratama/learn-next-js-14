@@ -1,7 +1,7 @@
 const Contact = () => {
   return (
     <section>
-      <div className="lg:grid lg:min-h-full lg:grid-cols-12">
+      <div className="lg:grid lg:min-h-full lg:grid-cols-12 mt-20">
         <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
           <img
             alt=""

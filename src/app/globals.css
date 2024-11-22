@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root,
+.root,
+#root,
+#docs-root {
   --bg: beige;
   --bg-darker: burlywood;
   --text: #000;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--bg);
